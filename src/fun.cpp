@@ -15,8 +15,7 @@ unsigned int faStr1(const char *str) {
             if (*str >= '0' && *str <= '9') {
                 hasDigit = true;
             }
-        }
-        else {
+        } else {
             if (inWord && !hasDigit) {
                 count++;
             }
@@ -41,26 +40,28 @@ unsigned int faStr2(const char *str) {
         if (*str != ' ') {
             if (inWord == false) {
                 inWord = true;
-                if (*str >= 'A' && *str <= 'Z')
+                if (*str >= 'A' && *str <= 'Z') {
                     goodWord = true;
-                else
+                } else {
                     goodWord = false;
-            }
-            else {
-                if (!(*str >= 'a' && *str <= 'z'))
+                }
+            } else {
+                if (!(*str >= 'a' && *str <= 'z')) {
                     goodWord = false;
+                }
             }
-        }
-        else {
-            if (inWord == true && goodWord == true)
+        } else {
+            if (inWord == true && goodWord == true) {
                 count++;
+            }
             inWord = false;
         }
         str++;
     }
 
-    if (inWord == true && goodWord == true)
+    if (inWord == true && goodWord == true) {
         count++;
+    }
 
     return count;
 }
@@ -76,12 +77,10 @@ unsigned int faStr3(const char *str) {
             if (inWord == false) {
                 inWord = true;
                 currentLength = 1;
-            }
-            else {
+            } else {
                 currentLength++;
             }
-        }
-        else {
+        } else {
             if (inWord == true) {
                 wordsCount++;
                 totalLength += currentLength;
@@ -96,8 +95,9 @@ unsigned int faStr3(const char *str) {
         totalLength += currentLength;
     }
 
-    if (wordsCount == 0)
+    if (wordsCount == 0) {
         return 0;
+    }
 
     return (totalLength + wordsCount / 2) / wordsCount;
 }
